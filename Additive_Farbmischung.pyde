@@ -3,11 +3,11 @@ g = 255
 b = 255
 
 def setup():
-    size(600, 600)
+    size(900, 600)
     background(255, 255, 255)
     
 def draw():
-    colorMode(RGB,100)
+    colorMode(RGB,255)
 
     #Rotes Quadrat  
     fill(r, 0, 0)
