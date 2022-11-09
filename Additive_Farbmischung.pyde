@@ -22,6 +22,17 @@ def draw():
     textSize(24)
     fill(0)
     text("Verschiebe den Regler und schau, was passiert!", 400, 570)
+    
+    #Ausgabe der Prozentzahl des RGB Anteils unter den Reglern
+    #"%" zu ergänzen hinter Prozentzahl
+    textSize(24)
+    fill(0)
+    text((r*100/255), 600, 500)
+    text((g*100/255), 700, 500)
+    text((b*100/255), 800, 500)
+    
+    #interaktive Regler für den RGB Anteil
+    #zu ergänzen über den Prozentzahlen
 
 
     #Rotes Quadrat  
