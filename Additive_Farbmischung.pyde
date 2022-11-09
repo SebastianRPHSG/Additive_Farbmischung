@@ -6,7 +6,12 @@ def setup():
     frameRate(5)
     size(900, 600)
     background(255, 255, 255)
-    
+  
+    #Textanweisung für Benutzung der App
+    textSize(24)
+    fill(0)
+    text("Verschiebe den Regler und schau, was passiert!", 400, 570)
+           
 def draw():
     colorMode(RGB,255)
     
@@ -18,18 +23,15 @@ def draw():
     fill(rn1, rn2, rn3)
     text("Additive Farbmischung", 250, 50)
 
-    #Textanweisung für Benutzung der App
-    textSize(24)
-    fill(0)
-    text("Verschiebe den Regler und schau, was passiert!", 400, 570)
+
     
     #Ausgabe der Prozentzahl des RGB Anteils unter den Reglern
     #"%" zu ergänzen hinter Prozentzahl
     textSize(24)
     fill(0)
-    text((r*100/255), 600, 500)
-    text((g*100/255), 700, 500)
-    text((b*100/255), 800, 500)
+    text(str(r*100/255)+("%"), 600, 500)
+    text(str(g*100/255)+("%"), 700, 500)
+    text(str(b*100/255)+("%"), 800, 500)
     
     #interaktive Regler für den RGB Anteil
     #zu ergänzen über den Prozentzahlen
@@ -62,3 +64,4 @@ def draw():
     #Schnittstelle Grün-Blau
     fill(0, g, b)
     rect(325, 275, 100, 50)
+    
