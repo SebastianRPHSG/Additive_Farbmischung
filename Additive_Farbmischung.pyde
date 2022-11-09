@@ -3,11 +3,26 @@ g = 255
 b = 255
 
 def setup():
+    frameRate(5)
     size(900, 600)
     background(255, 255, 255)
     
 def draw():
     colorMode(RGB,255)
+    
+    #Textüberschrift mit Random flimmernder Farbe
+    textSize(42)
+    rn1 = random(0,255)
+    rn2 = random(0,255)
+    rn3 = random(0,255)
+    fill(rn1, rn2, rn3)
+    text("Additive Farbmischung", 250, 50)
+
+    #Textanweisung für Benutzung der App
+    textSize(24)
+    fill(0)
+    text("Verschiebe den Regler und schau, was passiert!", 400, 570)
+
 
     #Rotes Quadrat  
     fill(r, 0, 0)
