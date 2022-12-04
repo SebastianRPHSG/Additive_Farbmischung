@@ -38,12 +38,9 @@ def draw():
     background(255, 255, 255)
 
     
-    #Textüberschrift mit Random flimmernder Farbe
+    #Textüberschrift mit den RGB-Werten entsprechender Färbung
     textSize(42)
-    rn1 = random(0,255)
-    rn2 = random(0,255)
-    rn3 = random(0,255)
-    fill(rn1, rn2, rn3)
+    fill(r, g, b)
     text("Additive Farbmischung", 250, 50)
 
 
