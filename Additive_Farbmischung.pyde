@@ -1,4 +1,3 @@
-
 # Globale Variablen:
 # movingMode (Boolean): True, wenn der Schieber (Kreis) in Bewegung ist, False wenn nicht
 # pointerPos (Integer): Position des Pointers in Pixeln
@@ -21,10 +20,6 @@ def setup():
     size(900, 600)
     background(255, 255, 255)
   
-    #Textanweisung für Benutzung der App
-    textSize(24)
-    fill(0)
-    text("Verschiebe den Regler und schau, was passiert!", 400, 570)
            
 def draw():
     
@@ -41,9 +36,10 @@ def draw():
     #Textüberschrift mit den RGB-Werten entsprechender Färbung
     textSize(42)
     fill(r, g, b)
+    #Textanweisung für Benutzung der App
     text("Additive Farbmischung", 250, 50)
-
-
+    textSize(24)
+    text("Verschiebe den Regler und schau, was passiert!", 400, 570)
 
     
     #Ausgabe der Prozentzahl des RGB Anteils unter den Reglern
