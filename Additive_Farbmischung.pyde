@@ -1,8 +1,9 @@
+from ruler1 import *
 # Globale Variablen:
 # movingMode (Boolean): True, wenn der Schieber (Kreis) in Bewegung ist, False wenn nicht
 # pointerPos (Integer): Position des Pointers in Pixeln
 # pointerVal (Float):   Eingestellter Wert (0 - 100)
-# Definiert drei Mal für jeden einzelnen Schieberegler
+# Definiert drei Mal fuer jeden einzelnen Schieberegler
 movingMode1 = False
 pointerPos1 = 0
 pointerVal1 = 1.0
@@ -23,27 +24,27 @@ def setup():
            
 def draw():
     
-    #RGB Werte in Abhängigkeit der PointerValues definiert
+    #RGB Werte in Abhaengigkeit der PointerValues definiert
     
     r = 255 * pointerVal1 / 100
     g = 255 * pointerVal2 / 100
     b = 255 * pointerVal3 / 100
     
-    #Bei jedem Durchgang wird alles mit dem Hintergrund überschrieben und neu gemacht
+    #Bei jedem Durchgang wird alles mit dem Hintergrund ueberschrieben und neu gemacht
     background(255, 255, 255)
 
     
-    #Textüberschrift mit den RGB-Werten entsprechender Färbung
+    #Textueberschrift mit den RGB-Werten entsprechender Faerbung
     textSize(42)
     fill(r, g, b)
-    #Textanweisung für Benutzung der App
+    #Textanweisung fuer Benutzung der App
     text("Additive Farbmischung", 250, 50)
     textSize(24)
     text("Verschiebe den Regler und schau, was passiert!", 400, 570)
 
     
     #Ausgabe der Prozentzahl des RGB Anteils unter den Reglern
-    #"%" zu ergänzen hinter Prozentzahl
+    #"%" zu ergaenzen hinter Prozentzahl
     textSize(24)
     fill(0)
     text(str(r*100/255)+("%"), 600, 500)
@@ -56,7 +57,7 @@ def draw():
     fill(r, 0, 0)
     square(75, 75, 250)
     
-    #Grünes Quadrat  
+    #Gruenes Quadrat  
     fill(0, g, 0)
     square(275, 75, 250)
     
@@ -68,7 +69,7 @@ def draw():
     fill(r, g, b)
     square(275, 275, 50)
     
-    #Schnittstelle Rot-Grün
+    #Schnittstelle Rot-Gruen
     fill(r, g, 0)
     rect(275, 75, 50, 200)
     
@@ -76,13 +77,13 @@ def draw():
     fill(r, 0, b)
     rect(175, 275, 100, 50)
     
-    #Schnittstelle Grün-Blau
+    #Schnittstelle Gruen-Blau
     fill(0, g, b)
     rect(325, 275, 100, 50)
     
 # '''
 # ' Schieberegler
-# ' Simon Hefti, Okt. 2020 verändert von Maria Mannai November 2022
+# ' Simon Hefti, Okt. 2020 veraendert von Maria Mannai November 2022
 # '''
 
 
@@ -92,60 +93,8 @@ def draw():
     ruler2 = draw_ruler2(720, 450, 200)
     ruler3 = draw_ruler3(820, 450, 200)
 
-    
-# Funktion: Schieberegler generieren
-# objX:      X-Position des Reglers
-# objY:      Y-Position des Reglers
-# objLength: Länge des Reglers
-def draw_ruler1(objX, objY, objLength):
-    global movingMode1
-    global pointerPos1
-    global pointerVal1
-    
-    # Schieber einstellen
-    pointerRadius = 24
-    if pointerPos1 == 0:
-        pointerPos1 = objY
-    
-    # Linie zeichnen
-    fill(85)
-    strokeWeight(6)
-    line(objX, objY, objX , objY- objLength)
-    fill(185)
-    strokeWeight(2)
-    
-    # Überprüfen ob Schieber angeklickt worden ist --> Bewegungsmodus aktivieren
-    if mouseY > pointerPos1 - pointerRadius and mouseY < pointerPos1 + pointerRadius and mouseX > objX - pointerRadius and mouseX < objX + pointerRadius and mousePressed == True:
-        movingMode1 = True
-    
-    # Wenn keine Maustaste gedrückt ist --> Bewegungsmodus deaktivieren
-    if mousePressed == False:
-        movingMode1 = False
-        cursor(ARROW)
-    
-    # Bei aktiviertem Bewegungsmodus
-    if movingMode1 == True:
-        cursor(HAND)
-        
-        # Schieber der Line entlang bewegen
-        if mouseY < objY and mouseY > objY - objLength:
-            pointerPos1 = mouseY
-        
-        # Wenn Maus ausserhalb der Linie, Schieber am Start oder Ende fixieren
-        else:
-            if mouseY < objY:
-                pointerPos1 = objY - objLength
-            if mouseY > objY:
-                pointerPos1 = objY
-
-    # Schieber zeichnen  und rot färben        
-    fill(255,0,0)  
-    circle(objX, pointerPos1, pointerRadius)
-    
-    # Eingestellter Wert anhand der Schieberposition ermitteln
-    pointerVal1 = int(100 / float(objLength) * (objY - pointerPos1))
             
-# Zweite Definition für zweiten Schieberegler
+# Zweite Definition fuer zweiten Schieberegler
 
 def draw_ruler2(objX, objY, objLength):
     global movingMode2
@@ -164,11 +113,11 @@ def draw_ruler2(objX, objY, objLength):
     fill(185)
     strokeWeight(2)
     
-    # Überprüfen ob Schieber angeklickt worden ist --> Bewegungsmodus aktivieren
+    # ueberpruefen ob Schieber angeklickt worden ist --> Bewegungsmodus aktivieren
     if mouseY > pointerPos2 - pointerRadius and mouseY < pointerPos2 + pointerRadius and mouseX > objX - pointerRadius and mouseX < objX + pointerRadius and mousePressed == True:
         movingMode2 = True
     
-    # Wenn keine Maustaste gedrückt ist --> Bewegungsmodus deaktivieren
+    # Wenn keine Maustaste gedrueckt ist --> Bewegungsmodus deaktivieren
     if mousePressed == False:
         movingMode2 = False
         cursor(ARROW)
@@ -188,14 +137,14 @@ def draw_ruler2(objX, objY, objLength):
             if mouseY > objY:
                 pointerPos2 = objY
 
-    # Schieber zeichnen  und grün färben       
+    # Schieber zeichnen  und gruen faerben       
     fill(0,255,0)          
     circle(objX, pointerPos2, pointerRadius)
     
     # Eingestellter Wert anhand der Schieberposition ermitteln
     pointerVal2 = int(100 / float(objLength) * (objY - pointerPos2))
             
-# Zweite Definition für dritten Schieberegler
+# Zweite Definition fuer dritten Schieberegler
 
 def draw_ruler3(objX, objY, objLength):
     global movingMode3
@@ -214,11 +163,11 @@ def draw_ruler3(objX, objY, objLength):
     fill(185)
     strokeWeight(2)
     
-    # Überprüfen ob Schieber angeklickt worden ist --> Bewegungsmodus aktivieren
+    # ueberpruefen ob Schieber angeklickt worden ist --> Bewegungsmodus aktivieren
     if mouseY > pointerPos3 - pointerRadius and mouseY < pointerPos3 + pointerRadius and mouseX > objX - pointerRadius and mouseX < objX + pointerRadius and mousePressed == True:
         movingMode3 = True
     
-    # Wenn keine Maustaste gedrückt ist --> Bewegungsmodus deaktivieren
+    # Wenn keine Maustaste gedrueckt ist --> Bewegungsmodus deaktivieren
     if mousePressed == False:
         movingMode3 = False
         cursor(ARROW)
@@ -238,7 +187,7 @@ def draw_ruler3(objX, objY, objLength):
             if mouseY > objY:
                 pointerPos3 = objY
 
-    # Schieber zeichnen und blau färben   
+    # Schieber zeichnen und blau faerben   
     fill(0,0,255)          
     circle(objX, pointerPos3, pointerRadius)
     
