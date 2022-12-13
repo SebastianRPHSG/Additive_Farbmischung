@@ -38,7 +38,9 @@ def draw():
     fill(r, g, b)
     #Textanweisung fuer Benutzung der App
     text("Additive Farbmischung", 250, 50)
+    #Textanweisung in schwarz
     textSize(24)
+    fill(0)
     text("Verschiebe den Regler und schau, was passiert!", 400, 570)
 
     
